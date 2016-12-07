@@ -1,0 +1,24 @@
+adress_index:
+    path:     /
+    defaults: { _controller: "PhotoexpressoBundle:Address:index" }
+    methods:  GET
+
+adress_show:
+    path:     /{id}/show
+    defaults: { _controller: "PhotoexpressoBundle:Address:show" }
+    methods:  GET
+
+adress_new:
+    path:     /new
+    defaults: { _controller: "PhotoexpressoBundle:Address:new" }
+    methods:  [GET, POST]
+
+adress_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PhotoexpressoBundle:Address:edit" }
+    methods:  [GET, POST]
+
+adress_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PhotoexpressoBundle:Address:delete" }
+    methods:  DELETE

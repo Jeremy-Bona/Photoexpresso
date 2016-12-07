@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Useraction</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ useraction.id }}</td>
+            </tr>
+            <tr>
+                <th>Datetime</th>
+                <td>{% if useraction.datetime %}{{ useraction.datetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Details</th>
+                <td>{{ useraction.details }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_action_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('user_action_edit', { 'id': useraction.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

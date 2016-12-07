@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Deviceversions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Installdatetime</th>
+                <th>Uninstalldatetime</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for deviceversion in deviceversions %}
+            <tr>
+                <td><a href="{{ path('device_version_show', { 'id': deviceversion.id }) }}">{{ deviceversion.id }}</a></td>
+                <td>{% if deviceversion.installdatetime %}{{ deviceversion.installdatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if deviceversion.uninstalldatetime %}{{ deviceversion.uninstalldatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('device_version_show', { 'id': deviceversion.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('device_version_edit', { 'id': deviceversion.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('device_version_new') }}">Create a new deviceversion</a>
+        </li>
+    </ul>
+{% endblock %}

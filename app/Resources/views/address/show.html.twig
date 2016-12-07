@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Address</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ address.id }}</td>
+            </tr>
+            <tr>
+                <th>Adressname</th>
+                <td>{{ address.adressname }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ address.address }}</td>
+            </tr>
+            <tr>
+                <th>Adresscomplement</th>
+                <td>{{ address.adresscomplement }}</td>
+            </tr>
+            <tr>
+                <th>Zipcode</th>
+                <td>{{ address.zipcode }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ address.city }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ address.country }}</td>
+            </tr>
+            <tr>
+                <th>Isdefault</th>
+                <td>{% if address.isdefault %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Isfacturedefault</th>
+                <td>{% if address.isfacturedefault %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datetime</th>
+                <td>{% if address.datetime %}{{ address.datetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('adress_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('adress_edit', { 'id': address.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

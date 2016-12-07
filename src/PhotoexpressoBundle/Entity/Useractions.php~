@@ -1,0 +1,50 @@
+<?php
+
+namespace PhotoexpressoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Useractions
+ *
+ * @ORM\Table(name="UserActions", indexes={@ORM\Index(name="fk_UserActions_User1_idx", columns={"User_id"})})
+ * @ORM\Entity
+ */
+class Useractions
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datetime", type="datetime", nullable=true)
+     */
+    private $datetime;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="details", type="string", length=255, nullable=true)
+     */
+    private $details;
+
+    /**
+     * @var \PhotoexpressoBundle\Entity\User
+     *
+     * @ORM\OneToOne(targetEntity="PhotoexpressoBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="User_id", referencedColumnName="id", unique=true)
+     * })
+     */
+    private $user;
+
+
+}
+

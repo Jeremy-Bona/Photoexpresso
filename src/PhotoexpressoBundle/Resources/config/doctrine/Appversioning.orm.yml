@@ -1,0 +1,35 @@
+PhotoexpressoBundle\Entity\Appversioning:
+    type: entity
+    table: AppVersioning
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        version:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        datestart:
+            type: datetime
+            nullable: true
+            column: dateStart
+        datestop:
+            type: datetime
+            nullable: true
+            column: dateStop
+        apiversion:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: APIVersion
+    lifecycleCallbacks: {  }

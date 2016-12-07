@@ -1,0 +1,24 @@
+device_version_index:
+    path:     /
+    defaults: { _controller: "PhotoexpressoBundle:Deviceversion:index" }
+    methods:  GET
+
+device_version_show:
+    path:     /{id}/show
+    defaults: { _controller: "PhotoexpressoBundle:Deviceversion:show" }
+    methods:  GET
+
+device_version_new:
+    path:     /new
+    defaults: { _controller: "PhotoexpressoBundle:Deviceversion:new" }
+    methods:  [GET, POST]
+
+device_version_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PhotoexpressoBundle:Deviceversion:edit" }
+    methods:  [GET, POST]
+
+device_version_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PhotoexpressoBundle:Deviceversion:delete" }
+    methods:  DELETE

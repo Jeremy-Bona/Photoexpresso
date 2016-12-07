@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Addresses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Adressname</th>
+                <th>Address</th>
+                <th>Adresscomplement</th>
+                <th>Zipcode</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Isdefault</th>
+                <th>Isfacturedefault</th>
+                <th>Datetime</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for address in addresses %}
+            <tr>
+                <td><a href="{{ path('adress_show', { 'id': address.id }) }}">{{ address.id }}</a></td>
+                <td>{{ address.adressname }}</td>
+                <td>{{ address.address }}</td>
+                <td>{{ address.adresscomplement }}</td>
+                <td>{{ address.zipcode }}</td>
+                <td>{{ address.city }}</td>
+                <td>{{ address.country }}</td>
+                <td>{% if address.isdefault %}Yes{% else %}No{% endif %}</td>
+                <td>{% if address.isfacturedefault %}Yes{% else %}No{% endif %}</td>
+                <td>{% if address.datetime %}{{ address.datetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('adress_show', { 'id': address.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('adress_edit', { 'id': address.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('adress_new') }}">Create a new address</a>
+        </li>
+    </ul>
+{% endblock %}

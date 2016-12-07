@@ -1,0 +1,54 @@
+<?php
+
+namespace PhotoexpressoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Promotionnal
+ *
+ * @ORM\Table(name="Promotionnal")
+ * @ORM\Entity
+ */
+class Promotionnal
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idPromotionnal", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idpromotionnal;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateCreate", type="datetime", nullable=true)
+     */
+    private $datecreate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateStart", type="datetime", nullable=true)
+     */
+    private $datestart;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateStop", type="datetime", nullable=true)
+     */
+    private $datestop;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
+     */
+    private $url;
+
+
+}
+

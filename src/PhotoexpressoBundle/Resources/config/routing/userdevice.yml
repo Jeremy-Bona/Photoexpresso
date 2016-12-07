@@ -1,0 +1,24 @@
+user_device_index:
+    path:     /
+    defaults: { _controller: "PhotoexpressoBundle:Userdevice:index" }
+    methods:  GET
+
+user_device_show:
+    path:     /{id}/show
+    defaults: { _controller: "PhotoexpressoBundle:Userdevice:show" }
+    methods:  GET
+
+user_device_new:
+    path:     /new
+    defaults: { _controller: "PhotoexpressoBundle:Userdevice:new" }
+    methods:  [GET, POST]
+
+user_device_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PhotoexpressoBundle:Userdevice:edit" }
+    methods:  [GET, POST]
+
+user_device_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PhotoexpressoBundle:Userdevice:delete" }
+    methods:  DELETE

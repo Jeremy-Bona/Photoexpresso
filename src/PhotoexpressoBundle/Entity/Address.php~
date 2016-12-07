@@ -1,0 +1,111 @@
+<?php
+
+namespace PhotoexpressoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Address
+ *
+ * @ORM\Table(name="Address")
+ * @ORM\Entity
+ */
+class Address
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adressName", type="string", length=100, nullable=true)
+     */
+    private $adressname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adressComplement", type="string", length=100, nullable=true)
+     */
+    private $adresscomplement;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="zipCode", type="integer", nullable=true)
+     */
+    private $zipcode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=45, nullable=true)
+     */
+    private $city;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=45, nullable=true)
+     */
+    private $country;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isDefault", type="boolean", nullable=true)
+     */
+    private $isdefault;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isFactureDefault", type="boolean", nullable=true)
+     */
+    private $isfacturedefault;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datetime", type="datetime", nullable=true)
+     */
+    private $datetime;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="PhotoexpressoBundle\Entity\User", inversedBy="address")
+     * @ORM\JoinTable(name="address_has_user",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="Address_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="User_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $user;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

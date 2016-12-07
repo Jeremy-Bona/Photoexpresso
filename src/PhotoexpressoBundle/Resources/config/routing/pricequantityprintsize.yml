@@ -1,0 +1,24 @@
+price_index:
+    path:     /
+    defaults: { _controller: "PhotoexpressoBundle:Pricequantityprintsize:index" }
+    methods:  GET
+
+price_show:
+    path:     /{id}/show
+    defaults: { _controller: "PhotoexpressoBundle:Pricequantityprintsize:show" }
+    methods:  GET
+
+price_new:
+    path:     /new
+    defaults: { _controller: "PhotoexpressoBundle:Pricequantityprintsize:new" }
+    methods:  [GET, POST]
+
+price_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PhotoexpressoBundle:Pricequantityprintsize:edit" }
+    methods:  [GET, POST]
+
+price_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PhotoexpressoBundle:Pricequantityprintsize:delete" }
+    methods:  DELETE

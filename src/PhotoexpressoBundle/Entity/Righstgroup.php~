@@ -1,0 +1,40 @@
+<?php
+
+namespace PhotoexpressoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Righstgroup
+ *
+ * @ORM\Table(name="RighstGroup")
+ * @ORM\Entity
+ */
+class Righstgroup
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="right_container", type="string", length=45, nullable=true)
+     */
+    private $rightContainer;
+
+
+}
+

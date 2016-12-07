@@ -1,0 +1,45 @@
+PhotoexpressoBundle\Entity\Actions:
+    type: entity
+    table: Actions
+    indexes:
+        fk_Actions_User1_idx:
+            columns:
+                - User_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+    fields:
+        datetime:
+            type: datetime
+            nullable: true
+        details:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    oneToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                User_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        photo:
+            targetEntity: Photo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: actions
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

@@ -1,0 +1,24 @@
+right_group_index:
+    path:     /
+    defaults: { _controller: "PhotoexpressoBundle:Righstgroup:index" }
+    methods:  GET
+
+right_group_show:
+    path:     /{id}/show
+    defaults: { _controller: "PhotoexpressoBundle:Righstgroup:show" }
+    methods:  GET
+
+right_group_new:
+    path:     /new
+    defaults: { _controller: "PhotoexpressoBundle:Righstgroup:new" }
+    methods:  [GET, POST]
+
+right_group_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PhotoexpressoBundle:Righstgroup:edit" }
+    methods:  [GET, POST]
+
+right_group_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PhotoexpressoBundle:Righstgroup:delete" }
+    methods:  DELETE

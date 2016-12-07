@@ -1,0 +1,24 @@
+tickets_index:
+    path:     /
+    defaults: { _controller: "PhotoexpressoBundle:Ticket:index" }
+    methods:  GET
+
+tickets_show:
+    path:     /{id}/show
+    defaults: { _controller: "PhotoexpressoBundle:Ticket:show" }
+    methods:  GET
+
+tickets_new:
+    path:     /new
+    defaults: { _controller: "PhotoexpressoBundle:Ticket:new" }
+    methods:  [GET, POST]
+
+tickets_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PhotoexpressoBundle:Ticket:edit" }
+    methods:  [GET, POST]
+
+tickets_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PhotoexpressoBundle:Ticket:delete" }
+    methods:  DELETE

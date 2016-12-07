@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Userdevice</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ userdevice.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ userdevice.name }}</td>
+            </tr>
+            <tr>
+                <th>Datetime</th>
+                <td>{% if userdevice.datetime %}{{ userdevice.datetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Connected</th>
+                <td>{% if userdevice.connected %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_device_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('user_device_edit', { 'id': userdevice.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,4 @@
+services:
+#    photoexpresso.example:
+#        class: PhotoexpressoBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

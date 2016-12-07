@@ -1,0 +1,82 @@
+photoexpresso_order:
+    resource: "@PhotoexpressoBundle/Resources/config/routing/order.yml"
+    prefix:   /order
+
+photoexpresso_user:
+    resource: "@PhotoexpressoBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+photoexpresso_adress:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/address.yml"
+        prefix:   /adress
+
+photoexpresso_passwd:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/password.yml"
+        prefix:   /passwd
+
+photoexpresso_tickets:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/ticket.yml"
+        prefix:   /ticket
+photoexpresso_token:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/token.yml"
+        prefix:   /token
+
+photoexpresso_user_rights:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/userrights.yml"
+        prefix:   /user_rights
+
+photoexpresso_user_promo:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/userpromo.yml"
+        prefix:   /user_promo
+
+photoexpresso_promo:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/promotionnal.yml"
+        prefix:   /promo
+
+photoexpresso_notif:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/notifications.yml"
+        prefix:   /notif
+
+photoexpresso_user_action:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/useractions.yml"
+        prefix:   /user_action
+
+photoexpresso_rights:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/rights.yml"
+        prefix:   /right
+
+photoexpresso_right_group:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/righstgroup.yml"
+        prefix:   /right_group
+
+photoexpresso_order_photo_size:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/orderphotosize.yml"
+        prefix:   /order_photo_size
+
+photoexpresso_print_size:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/printsize.yml"
+        prefix:   /print_size
+
+photoexpresso_price:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/pricequantityprintsize.yml"
+        prefix:   /price
+
+photoexpresso_photo:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/photo.yml"
+        prefix:   /photo
+
+photoexpresso_device:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/device.yml"
+        prefix:   /device
+
+photoexpresso_device_version:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/deviceversion.yml"
+        prefix:   /device_version
+
+photoexpresso_app_version:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/appversioning.yml"
+        prefix:   /app_version
+
+photoexpresso_user_device:
+        resource: "@PhotoexpressoBundle/Resources/config/routing/userdevice.yml"
+        prefix:   /user_device

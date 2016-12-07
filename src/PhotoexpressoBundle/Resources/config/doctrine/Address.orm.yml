@@ -1,0 +1,81 @@
+PhotoexpressoBundle\Entity\Address:
+    type: entity
+    table: Address
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        adressname:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: adressName
+        address:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        adresscomplement:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: adressComplement
+        zipcode:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: zipCode
+        city:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        country:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        isdefault:
+            type: boolean
+            nullable: true
+            column: isDefault
+        isfacturedefault:
+            type: boolean
+            nullable: true
+            column: isFactureDefault
+        datetime:
+            type: datetime
+            nullable: true
+    manyToMany:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: address
+            joinTable:
+                name: address_has_user
+                joinColumns:
+                    -
+                        name: Address_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: User_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

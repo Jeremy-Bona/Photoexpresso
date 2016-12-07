@@ -1,0 +1,70 @@
+<?php
+
+namespace PhotoexpressoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Userrights
+ *
+ * @ORM\Table(name="UserRights", indexes={@ORM\Index(name="fk_UserRights_User1_idx", columns={"User_id"}), @ORM\Index(name="fk_UserRights_RighstGroup1_idx", columns={"RighstGroup_id"}), @ORM\Index(name="fk_UserRights_Rights1_idx", columns={"Rights_id"})})
+ * @ORM\Entity
+ */
+class Userrights
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateStart", type="datetime", nullable=true)
+     */
+    private $datestart;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateStop", type="datetime", nullable=true)
+     */
+    private $datestop;
+
+    /**
+     * @var \PhotoexpressoBundle\Entity\Righstgroup
+     *
+     * @ORM\OneToOne(targetEntity="PhotoexpressoBundle\Entity\Righstgroup")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="RighstGroup_id", referencedColumnName="id", unique=true)
+     * })
+     */
+    private $righstgroup;
+
+    /**
+     * @var \PhotoexpressoBundle\Entity\Rights
+     *
+     * @ORM\OneToOne(targetEntity="PhotoexpressoBundle\Entity\Rights")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Rights_id", referencedColumnName="id", unique=true)
+     * })
+     */
+    private $rights;
+
+    /**
+     * @var \PhotoexpressoBundle\Entity\User
+     *
+     * @ORM\OneToOne(targetEntity="PhotoexpressoBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="User_id", referencedColumnName="id", unique=true)
+     * })
+     */
+    private $user;
+
+
+}
+

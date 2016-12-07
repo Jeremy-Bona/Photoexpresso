@@ -1,0 +1,96 @@
+<?php
+
+namespace PhotoexpressoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * User
+ *
+ * @ORM\Table(name="User", uniqueConstraints={@ORM\UniqueConstraint(name="login_UNIQUE", columns={"login"})})
+ * @ORM\Entity
+ */
+class User
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
+     */
+    private $firstname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
+     */
+    private $lastname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="login", type="string", length=255, nullable=true)
+     */
+    private $login;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isBackend", type="boolean", nullable=true)
+     */
+    private $isbackend;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="validated", type="boolean", nullable=true)
+     */
+    private $validated;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datetime", type="datetime", nullable=true)
+     */
+    private $datetime;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="godfather", type="integer", nullable=true)
+     */
+    private $godfather;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="PhotoexpressoBundle\Entity\Address", mappedBy="user")
+     */
+    private $address;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->address = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

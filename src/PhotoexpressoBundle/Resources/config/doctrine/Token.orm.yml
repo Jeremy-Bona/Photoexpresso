@@ -1,0 +1,41 @@
+PhotoexpressoBundle\Entity\Token:
+    type: entity
+    table: Token
+    indexes:
+        fk_Token_User1_idx:
+            columns:
+                - User_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+    fields:
+        token:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        datecreate:
+            type: datetime
+            nullable: true
+            column: dateCreate
+        dateexpire:
+            type: datetime
+            nullable: true
+            column: dateExpire
+    oneToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                User_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

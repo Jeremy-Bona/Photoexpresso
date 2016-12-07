@@ -1,0 +1,33 @@
+PhotoexpressoBundle\Entity\Promotionnal:
+    type: entity
+    table: Promotionnal
+    id:
+        idpromotionnal:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idPromotionnal
+            generator:
+                strategy: IDENTITY
+    fields:
+        datecreate:
+            type: datetime
+            nullable: true
+            column: dateCreate
+        datestart:
+            type: datetime
+            nullable: true
+            column: dateStart
+        datestop:
+            type: datetime
+            nullable: true
+            column: dateStop
+        url:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

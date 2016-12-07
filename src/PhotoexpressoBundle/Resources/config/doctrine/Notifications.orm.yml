@@ -1,0 +1,39 @@
+PhotoexpressoBundle\Entity\Notifications:
+    type: entity
+    table: Notifications
+    indexes:
+        fk_Notifications_User1_idx:
+            columns:
+                - User_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+    fields:
+        datetime:
+            type: datetime
+            nullable: true
+        message:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        checked:
+            type: boolean
+            nullable: true
+    oneToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                User_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

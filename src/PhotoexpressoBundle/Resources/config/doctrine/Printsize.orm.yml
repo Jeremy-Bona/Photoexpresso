@@ -1,0 +1,32 @@
+PhotoexpressoBundle\Entity\Printsize:
+    type: entity
+    table: PrintSize
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        width:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        height:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        ratio:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        available:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }

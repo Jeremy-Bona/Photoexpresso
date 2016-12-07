@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Passwords list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pwdsha256</th>
+                <th>Datetime</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for password in passwords %}
+            <tr>
+                <td><a href="{{ path('passwd_show', { 'id': password.id }) }}">{{ password.id }}</a></td>
+                <td>{{ password.pwdSha256 }}</td>
+                <td>{{ password.datetime }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('passwd_show', { 'id': password.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('passwd_edit', { 'id': password.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('passwd_new') }}">Create a new password</a>
+        </li>
+    </ul>
+{% endblock %}

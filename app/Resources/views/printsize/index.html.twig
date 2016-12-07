@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Printsizes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Width</th>
+                <th>Height</th>
+                <th>Ratio</th>
+                <th>Available</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for printsize in printsizes %}
+            <tr>
+                <td><a href="{{ path('print_size_show', { 'id': printsize.id }) }}">{{ printsize.id }}</a></td>
+                <td>{{ printsize.width }}</td>
+                <td>{{ printsize.height }}</td>
+                <td>{{ printsize.ratio }}</td>
+                <td>{% if printsize.available %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('print_size_show', { 'id': printsize.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('print_size_edit', { 'id': printsize.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('print_size_new') }}">Create a new printsize</a>
+        </li>
+    </ul>
+{% endblock %}

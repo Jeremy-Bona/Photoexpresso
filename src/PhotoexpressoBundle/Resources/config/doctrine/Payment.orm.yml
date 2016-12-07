@@ -1,0 +1,82 @@
+PhotoexpressoBundle\Entity\Payment:
+    type: entity
+    table: Payment
+    indexes:
+        fk_Payment_User1_idx:
+            columns:
+                - User_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+    fields:
+        validUntil:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: valid_until
+        state:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        payerId:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: payer_id
+        type:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        number:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        expiremonth:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: expireMonth
+        expireyear:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: expireYear
+        firstname:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        lastname:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+    oneToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                User_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

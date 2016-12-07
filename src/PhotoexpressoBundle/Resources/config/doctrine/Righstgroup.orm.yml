@@ -1,0 +1,27 @@
+PhotoexpressoBundle\Entity\Righstgroup:
+    type: entity
+    table: RighstGroup
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        rightContainer:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: right_container
+    lifecycleCallbacks: {  }

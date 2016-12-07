@@ -1,0 +1,3 @@
+photoexpresso:
+    resource: "@PhotoexpressoBundle/Resources/config/routing.yml"
+    prefix:   /

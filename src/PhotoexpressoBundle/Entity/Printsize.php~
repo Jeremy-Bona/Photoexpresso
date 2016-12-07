@@ -1,0 +1,54 @@
+<?php
+
+namespace PhotoexpressoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Printsize
+ *
+ * @ORM\Table(name="PrintSize")
+ * @ORM\Entity
+ */
+class Printsize
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="width", type="integer", nullable=true)
+     */
+    private $width;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="height", type="integer", nullable=true)
+     */
+    private $height;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ratio", type="integer", nullable=true)
+     */
+    private $ratio;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="available", type="boolean", nullable=true)
+     */
+    private $available;
+
+
+}
+

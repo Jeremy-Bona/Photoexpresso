@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pricequantityprintsizes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fromquantity</th>
+                <th>Toquantity</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pricequantityprintsize in pricequantityprintsizes %}
+            <tr>
+                <td><a href="{{ path('price_show', { 'id': pricequantityprintsize.id }) }}">{{ pricequantityprintsize.id }}</a></td>
+                <td>{{ pricequantityprintsize.fromquantity }}</td>
+                <td>{{ pricequantityprintsize.toquantity }}</td>
+                <td>{{ pricequantityprintsize.price }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('price_show', { 'id': pricequantityprintsize.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('price_edit', { 'id': pricequantityprintsize.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('price_new') }}">Create a new pricequantityprintsize</a>
+        </li>
+    </ul>
+{% endblock %}

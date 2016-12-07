@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Righstgroups list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Rightcontainer</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for righstgroup in righstgroups %}
+            <tr>
+                <td><a href="{{ path('right_group_show', { 'id': righstgroup.id }) }}">{{ righstgroup.id }}</a></td>
+                <td>{{ righstgroup.name }}</td>
+                <td>{{ righstgroup.rightContainer }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('right_group_show', { 'id': righstgroup.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('right_group_edit', { 'id': righstgroup.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('right_group_new') }}">Create a new righstgroup</a>
+        </li>
+    </ul>
+{% endblock %}

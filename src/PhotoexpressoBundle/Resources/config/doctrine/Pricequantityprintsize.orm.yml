@@ -1,0 +1,44 @@
+PhotoexpressoBundle\Entity\Pricequantityprintsize:
+    type: entity
+    table: PriceQuantityPrintSize
+    indexes:
+        fk_PriceQuantityPrintSize_PrintSize1_idx:
+            columns:
+                - PrintSize_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+    fields:
+        fromquantity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fromQuantity
+        toquantity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: toQuantity
+        price:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+    oneToOne:
+        printsize:
+            targetEntity: Printsize
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PrintSize_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

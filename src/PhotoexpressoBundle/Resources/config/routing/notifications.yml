@@ -1,0 +1,24 @@
+notif_index:
+    path:     /
+    defaults: { _controller: "PhotoexpressoBundle:Notifications:index" }
+    methods:  GET
+
+notif_show:
+    path:     /{id}/show
+    defaults: { _controller: "PhotoexpressoBundle:Notifications:show" }
+    methods:  GET
+
+notif_new:
+    path:     /new
+    defaults: { _controller: "PhotoexpressoBundle:Notifications:new" }
+    methods:  [GET, POST]
+
+notif_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PhotoexpressoBundle:Notifications:edit" }
+    methods:  [GET, POST]
+
+notif_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PhotoexpressoBundle:Notifications:delete" }
+    methods:  DELETE

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Token</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ token.id }}</td>
+            </tr>
+            <tr>
+                <th>Token</th>
+                <td>{{ token.token }}</td>
+            </tr>
+            <tr>
+                <th>Datecreate</th>
+                <td>{% if token.datecreate %}{{ token.datecreate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateexpire</th>
+                <td>{% if token.dateexpire %}{{ token.dateexpire|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('token_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('token_edit', { 'id': token.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Orderphotosizes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Number</th>
+                <th>Brilliantmat</th>
+                <th>Marge</th>
+                <th>Messagephoto</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for orderphotosize in orderphotosizes %}
+            <tr>
+                <td><a href="{{ path('order_photo_size_show', { 'id': orderphotosize.id }) }}">{{ orderphotosize.id }}</a></td>
+                <td>{{ orderphotosize.number }}</td>
+                <td>{{ orderphotosize.brilliantmat }}</td>
+                <td>{{ orderphotosize.marge }}</td>
+                <td>{{ orderphotosize.messagephoto }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('order_photo_size_show', { 'id': orderphotosize.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('order_photo_size_edit', { 'id': orderphotosize.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('order_photo_size_new') }}">Create a new orderphotosize</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,57 @@
+<?php
+
+namespace PhotoexpressoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pricequantityprintsize
+ *
+ * @ORM\Table(name="PriceQuantityPrintSize", indexes={@ORM\Index(name="fk_PriceQuantityPrintSize_PrintSize1_idx", columns={"PrintSize_id"})})
+ * @ORM\Entity
+ */
+class Pricequantityprintsize
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fromQuantity", type="integer", nullable=true)
+     */
+    private $fromquantity;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="toQuantity", type="integer", nullable=true)
+     */
+    private $toquantity;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="price", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $price;
+
+    /**
+     * @var \PhotoexpressoBundle\Entity\Printsize
+     *
+     * @ORM\OneToOne(targetEntity="PhotoexpressoBundle\Entity\Printsize")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PrintSize_id", referencedColumnName="id", unique=true)
+     * })
+     */
+    private $printsize;
+
+
+}
+

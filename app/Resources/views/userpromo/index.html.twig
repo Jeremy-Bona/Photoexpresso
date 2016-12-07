@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Userpromos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Checked</th>
+                <th>Used</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for userPromo in userPromos %}
+            <tr>
+                <td><a href="{{ path('user_promo_show', { 'id': userPromo.id }) }}">{{ userPromo.id }}</a></td>
+                <td>{% if userPromo.checked %}{{ userPromo.checked|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if userPromo.used %}{{ userPromo.used|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_promo_show', { 'id': userPromo.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user_promo_edit', { 'id': userPromo.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_promo_new') }}">Create a new userPromo</a>
+        </li>
+    </ul>
+{% endblock %}

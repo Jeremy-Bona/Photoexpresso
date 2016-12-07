@@ -1,0 +1,48 @@
+PhotoexpressoBundle\Entity\Deviceversion:
+    type: entity
+    table: DeviceVersion
+    indexes:
+        fk_DeviceVersion_Device1_idx:
+            columns:
+                - Device_id
+        fk_DeviceVersion_AppVersioning1_idx:
+            columns:
+                - AppVersioning_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+    fields:
+        installdatetime:
+            type: datetime
+            nullable: true
+            column: installDatetime
+        uninstalldatetime:
+            type: datetime
+            nullable: true
+            column: uninstallDatetime
+    oneToOne:
+        appversioning:
+            targetEntity: Appversioning
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                AppVersioning_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        device:
+            targetEntity: Device
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Device_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

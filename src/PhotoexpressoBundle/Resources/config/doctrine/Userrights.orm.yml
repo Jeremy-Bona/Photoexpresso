@@ -1,0 +1,61 @@
+PhotoexpressoBundle\Entity\Userrights:
+    type: entity
+    table: UserRights
+    indexes:
+        fk_UserRights_User1_idx:
+            columns:
+                - User_id
+        fk_UserRights_RighstGroup1_idx:
+            columns:
+                - RighstGroup_id
+        fk_UserRights_Rights1_idx:
+            columns:
+                - Rights_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+    fields:
+        datestart:
+            type: datetime
+            nullable: true
+            column: dateStart
+        datestop:
+            type: datetime
+            nullable: true
+            column: dateStop
+    oneToOne:
+        righstgroup:
+            targetEntity: Righstgroup
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                RighstGroup_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        rights:
+            targetEntity: Rights
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Rights_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                User_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

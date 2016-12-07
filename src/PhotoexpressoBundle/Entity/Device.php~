@@ -1,0 +1,47 @@
+<?php
+
+namespace PhotoexpressoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Device
+ *
+ * @ORM\Table(name="Device")
+ * @ORM\Entity
+ */
+class Device
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imei", type="string", length=255, nullable=true)
+     */
+    private $imei;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modei", type="string", length=255, nullable=true)
+     */
+    private $modei;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
+    private $name;
+
+
+}
+

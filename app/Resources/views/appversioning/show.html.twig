@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Appversioning</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ appversioning.id }}</td>
+            </tr>
+            <tr>
+                <th>Version</th>
+                <td>{{ appversioning.version }}</td>
+            </tr>
+            <tr>
+                <th>Datestart</th>
+                <td>{% if appversioning.datestart %}{{ appversioning.datestart|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datestop</th>
+                <td>{% if appversioning.datestop %}{{ appversioning.datestop|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Apiversion</th>
+                <td>{{ appversioning.apiversion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('app_version_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('app_version_edit', { 'id': appversioning.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

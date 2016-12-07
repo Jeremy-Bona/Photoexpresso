@@ -1,0 +1,78 @@
+PhotoexpressoBundle\Entity\Orderphotosize:
+    type: entity
+    table: OrderPhotoSize
+    indexes:
+        fk_PrintSize_has_Order_PrintSize1_idx:
+            columns:
+                - PrintSize_id
+        fk_PrintSize_has_Order_Photo1_idx:
+            columns:
+                - Photo_id
+        fk_OrderPhotoSize_Order1_idx:
+            columns:
+                - Order_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        number:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        brilliantmat:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: brilliantMat
+        marge:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        messagephoto:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: messagePhoto
+    manyToOne:
+        order:
+            targetEntity: Order
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Order_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        photo:
+            targetEntity: Photo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Photo_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        printsize:
+            targetEntity: Printsize
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                PrintSize_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

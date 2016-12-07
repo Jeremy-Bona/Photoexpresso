@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Users list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Login</th>
+                <th>Email</th>
+                <th>Isbackend</th>
+                <th>Validated</th>
+                <th>Datetime</th>
+                <th>Godfather</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.login }}</td>
+                <td>{{ user.email }}</td>
+                <td>{% if user.isbackend %}Yes{% else %}No{% endif %}</td>
+                <td>{% if user.validated %}Yes{% else %}No{% endif %}</td>
+                <td>{% if user.datetime %}{{ user.datetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ user.godfather }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_new') }}">Create a new user</a>
+        </li>
+    </ul>
+{% endblock %}

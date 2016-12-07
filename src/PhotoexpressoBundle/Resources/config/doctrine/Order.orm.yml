@@ -1,0 +1,74 @@
+PhotoexpressoBundle\Entity\Order:
+    type: entity
+    table: Order
+    indexes:
+        fk_Order_User1_idx:
+            columns:
+                - User_id
+        fk_Order_Address1_idx:
+            columns:
+                - Address_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        datetime:
+            type: datetime
+            nullable: true
+        price:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        isvalidated:
+            type: boolean
+            nullable: true
+            column: isValidated
+        isreceived:
+            type: boolean
+            nullable: true
+            column: isReceived
+        ispaid:
+            type: boolean
+            nullable: true
+            column: isPaid
+        isprint:
+            type: boolean
+            nullable: true
+            column: isPrint
+        issent:
+            type: boolean
+            nullable: true
+            column: isSent
+        isarchive:
+            type: boolean
+            nullable: true
+            column: isArchive
+    manyToOne:
+        address:
+            targetEntity: Address
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Address_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                User_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

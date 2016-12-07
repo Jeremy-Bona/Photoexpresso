@@ -1,0 +1,42 @@
+PhotoexpressoBundle\Entity\Ticket:
+    type: entity
+    table: Ticket
+    indexes:
+        fk_Ticket_User1_idx:
+            columns:
+                - User_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+    fields:
+        datetime:
+            type: datetime
+            nullable: true
+        subject:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        message:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    oneToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                User_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

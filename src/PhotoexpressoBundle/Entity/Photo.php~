@@ -1,0 +1,63 @@
+<?php
+
+namespace PhotoexpressoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Photo
+ *
+ * @ORM\Table(name="Photo")
+ * @ORM\Entity
+ */
+class Photo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="path", type="string", length=255, nullable=true)
+     */
+    private $path;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="basename", type="string", length=45, nullable=true)
+     */
+    private $basename;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="PhotoexpressoBundle\Entity\Actions", inversedBy="photo")
+     * @ORM\JoinTable(name="photo_has_actions",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="Photo_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="Actions_id", referencedColumnName="id"),
+     *     @ORM\JoinColumn(name="Actions_User_id", referencedColumnName="User_id")
+     *   }
+     * )
+     */
+    private $actions;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->actions = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

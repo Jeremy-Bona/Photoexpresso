@@ -1,0 +1,66 @@
+PhotoexpressoBundle\Entity\User:
+    type: entity
+    table: User
+    uniqueConstraints:
+        login_UNIQUE:
+            columns:
+                - login
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        firstname:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        lastname:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        login:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        isbackend:
+            type: boolean
+            nullable: true
+            column: isBackend
+        validated:
+            type: boolean
+            nullable: true
+        datetime:
+            type: datetime
+            nullable: true
+        godfather:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToMany:
+        address:
+            targetEntity: Address
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: user
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

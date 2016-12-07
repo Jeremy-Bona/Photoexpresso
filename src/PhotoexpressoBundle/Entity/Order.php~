@@ -1,0 +1,102 @@
+<?php
+
+namespace PhotoexpressoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Order
+ *
+ * @ORM\Table(name="Order", indexes={@ORM\Index(name="fk_Order_User1_idx", columns={"User_id"}), @ORM\Index(name="fk_Order_Address1_idx", columns={"Address_id"})})
+ * @ORM\Entity
+ */
+class Order
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datetime", type="datetime", nullable=true)
+     */
+    private $datetime;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="price", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $price;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isValidated", type="boolean", nullable=true)
+     */
+    private $isvalidated;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isReceived", type="boolean", nullable=true)
+     */
+    private $isreceived;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isPaid", type="boolean", nullable=true)
+     */
+    private $ispaid;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isPrint", type="boolean", nullable=true)
+     */
+    private $isprint;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isSent", type="boolean", nullable=true)
+     */
+    private $issent;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isArchive", type="boolean", nullable=true)
+     */
+    private $isarchive;
+
+    /**
+     * @var \PhotoexpressoBundle\Entity\Address
+     *
+     * @ORM\ManyToOne(targetEntity="PhotoexpressoBundle\Entity\Address")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Address_id", referencedColumnName="id")
+     * })
+     */
+    private $address;
+
+    /**
+     * @var \PhotoexpressoBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="PhotoexpressoBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="User_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+
+}
+

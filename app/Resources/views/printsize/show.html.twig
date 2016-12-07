@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Printsize</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ printsize.id }}</td>
+            </tr>
+            <tr>
+                <th>Width</th>
+                <td>{{ printsize.width }}</td>
+            </tr>
+            <tr>
+                <th>Height</th>
+                <td>{{ printsize.height }}</td>
+            </tr>
+            <tr>
+                <th>Ratio</th>
+                <td>{{ printsize.ratio }}</td>
+            </tr>
+            <tr>
+                <th>Available</th>
+                <td>{% if printsize.available %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('print_size_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('print_size_edit', { 'id': printsize.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

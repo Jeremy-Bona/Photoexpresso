@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Promotionnal</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idpromotionnal</th>
+                <td>{{ promotionnal.idpromotionnal }}</td>
+            </tr>
+            <tr>
+                <th>Datecreate</th>
+                <td>{% if promotionnal.datecreate %}{{ promotionnal.datecreate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datestart</th>
+                <td>{% if promotionnal.datestart %}{{ promotionnal.datestart|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datestop</th>
+                <td>{% if promotionnal.datestop %}{{ promotionnal.datestop|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ promotionnal.url }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('promo_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('promo_edit', { 'id': promotionnal.idpromotionnal }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

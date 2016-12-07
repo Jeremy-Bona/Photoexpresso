@@ -1,0 +1,60 @@
+<?php
+
+namespace PhotoexpressoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Deviceversion
+ *
+ * @ORM\Table(name="DeviceVersion", indexes={@ORM\Index(name="fk_DeviceVersion_Device1_idx", columns={"Device_id"}), @ORM\Index(name="fk_DeviceVersion_AppVersioning1_idx", columns={"AppVersioning_id"})})
+ * @ORM\Entity
+ */
+class Deviceversion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="installDatetime", type="datetime", nullable=true)
+     */
+    private $installdatetime;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="uninstallDatetime", type="datetime", nullable=true)
+     */
+    private $uninstalldatetime;
+
+    /**
+     * @var \PhotoexpressoBundle\Entity\Appversioning
+     *
+     * @ORM\OneToOne(targetEntity="PhotoexpressoBundle\Entity\Appversioning")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="AppVersioning_id", referencedColumnName="id", unique=true)
+     * })
+     */
+    private $appversioning;
+
+    /**
+     * @var \PhotoexpressoBundle\Entity\Device
+     *
+     * @ORM\OneToOne(targetEntity="PhotoexpressoBundle\Entity\Device")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Device_id", referencedColumnName="id", unique=true)
+     * })
+     */
+    private $device;
+
+
+}
+

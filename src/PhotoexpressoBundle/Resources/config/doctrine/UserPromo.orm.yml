@@ -1,0 +1,46 @@
+PhotoexpressoBundle\Entity\UserPromo:
+    type: entity
+    table: User_Promo
+    indexes:
+        fk_User_Promo_User1_idx:
+            columns:
+                - User_id
+        fk_User_Promo_Promotionnal1_idx:
+            columns:
+                - Promotionnal_idPromotionnal
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+    fields:
+        checked:
+            type: datetime
+            nullable: true
+        used:
+            type: datetime
+            nullable: true
+    oneToOne:
+        promotionnalpromotionnal:
+            targetEntity: Promotionnal
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Promotionnal_idPromotionnal:
+                    referencedColumnName: idPromotionnal
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                User_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

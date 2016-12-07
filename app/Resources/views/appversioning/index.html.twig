@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Appversionings list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Version</th>
+                <th>Datestart</th>
+                <th>Datestop</th>
+                <th>Apiversion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for appversioning in appversionings %}
+            <tr>
+                <td><a href="{{ path('app_version_show', { 'id': appversioning.id }) }}">{{ appversioning.id }}</a></td>
+                <td>{{ appversioning.version }}</td>
+                <td>{% if appversioning.datestart %}{{ appversioning.datestart|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if appversioning.datestop %}{{ appversioning.datestop|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ appversioning.apiversion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('app_version_show', { 'id': appversioning.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_version_edit', { 'id': appversioning.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('app_version_new') }}">Create a new appversioning</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,47 @@
+PhotoexpressoBundle\Entity\Photo:
+    type: entity
+    table: Photo
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        path:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        basename:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+    manyToMany:
+        actions:
+            targetEntity: Actions
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: photo
+            joinTable:
+                name: photo_has_actions
+                joinColumns:
+                    -
+                        name: Photo_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: Actions_id
+                        referencedColumnName: id
+                    -
+                        name: Actions_User_id
+                        referencedColumnName: User_id
+            orderBy: null
+    lifecycleCallbacks: {  }

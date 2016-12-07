@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Promotionnals list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idpromotionnal</th>
+                <th>Datecreate</th>
+                <th>Datestart</th>
+                <th>Datestop</th>
+                <th>Url</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for promotionnal in promotionnals %}
+            <tr>
+                <td><a href="{{ path('promo_show', { 'id': promotionnal.idpromotionnal }) }}">{{ promotionnal.idpromotionnal }}</a></td>
+                <td>{% if promotionnal.datecreate %}{{ promotionnal.datecreate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if promotionnal.datestart %}{{ promotionnal.datestart|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if promotionnal.datestop %}{{ promotionnal.datestop|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ promotionnal.url }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('promo_show', { 'id': promotionnal.idpromotionnal }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('promo_edit', { 'id': promotionnal.idpromotionnal }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('promo_new') }}">Create a new promotionnal</a>
+        </li>
+    </ul>
+{% endblock %}

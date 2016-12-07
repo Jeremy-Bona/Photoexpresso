@@ -1,0 +1,24 @@
+order_photo_size_index:
+    path:     /
+    defaults: { _controller: "PhotoexpressoBundle:Orderphotosize:index" }
+    methods:  GET
+
+order_photo_size_show:
+    path:     /{id}/show
+    defaults: { _controller: "PhotoexpressoBundle:Orderphotosize:show" }
+    methods:  GET
+
+order_photo_size_new:
+    path:     /new
+    defaults: { _controller: "PhotoexpressoBundle:Orderphotosize:new" }
+    methods:  [GET, POST]
+
+order_photo_size_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PhotoexpressoBundle:Orderphotosize:edit" }
+    methods:  [GET, POST]
+
+order_photo_size_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PhotoexpressoBundle:Orderphotosize:delete" }
+    methods:  DELETE

@@ -1,0 +1,52 @@
+PhotoexpressoBundle\Entity\Userdevice:
+    type: entity
+    table: UserDevice
+    indexes:
+        fk_UserDevice_User1_idx:
+            columns:
+                - User_id
+        fk_UserDevice_Device1_idx:
+            columns:
+                - Device_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        datetime:
+            type: datetime
+            nullable: true
+        connected:
+            type: boolean
+            nullable: true
+    oneToOne:
+        device:
+            targetEntity: Device
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Device_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                User_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

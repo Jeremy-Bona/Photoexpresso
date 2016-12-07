@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Orderphotosize</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ orderphotosize.id }}</td>
+            </tr>
+            <tr>
+                <th>Number</th>
+                <td>{{ orderphotosize.number }}</td>
+            </tr>
+            <tr>
+                <th>Brilliantmat</th>
+                <td>{{ orderphotosize.brilliantmat }}</td>
+            </tr>
+            <tr>
+                <th>Marge</th>
+                <td>{{ orderphotosize.marge }}</td>
+            </tr>
+            <tr>
+                <th>Messagephoto</th>
+                <td>{{ orderphotosize.messagephoto }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('order_photo_size_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('order_photo_size_edit', { 'id': orderphotosize.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

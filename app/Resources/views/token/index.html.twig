@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tokens list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Token</th>
+                <th>Datecreate</th>
+                <th>Dateexpire</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for token in tokens %}
+            <tr>
+                <td><a href="{{ path('token_show', { 'id': token.id }) }}">{{ token.id }}</a></td>
+                <td>{{ token.token }}</td>
+                <td>{% if token.datecreate %}{{ token.datecreate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if token.dateexpire %}{{ token.dateexpire|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('token_show', { 'id': token.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('token_edit', { 'id': token.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('token_new') }}">Create a new token</a>
+        </li>
+    </ul>
+{% endblock %}

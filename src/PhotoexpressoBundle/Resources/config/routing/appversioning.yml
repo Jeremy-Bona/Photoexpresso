@@ -1,0 +1,24 @@
+app_version_index:
+    path:     /
+    defaults: { _controller: "PhotoexpressoBundle:Appversioning:index" }
+    methods:  GET
+
+app_version_show:
+    path:     /{id}/show
+    defaults: { _controller: "PhotoexpressoBundle:Appversioning:show" }
+    methods:  GET
+
+app_version_new:
+    path:     /new
+    defaults: { _controller: "PhotoexpressoBundle:Appversioning:new" }
+    methods:  [GET, POST]
+
+app_version_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PhotoexpressoBundle:Appversioning:edit" }
+    methods:  [GET, POST]
+
+app_version_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PhotoexpressoBundle:Appversioning:delete" }
+    methods:  DELETE

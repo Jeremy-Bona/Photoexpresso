@@ -1,0 +1,84 @@
+<?php
+
+namespace PhotoexpressoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Orderphotosize
+ *
+ * @ORM\Table(name="OrderPhotoSize", indexes={@ORM\Index(name="fk_PrintSize_has_Order_PrintSize1_idx", columns={"PrintSize_id"}), @ORM\Index(name="fk_PrintSize_has_Order_Photo1_idx", columns={"Photo_id"}), @ORM\Index(name="fk_OrderPhotoSize_Order1_idx", columns={"Order_id"})})
+ * @ORM\Entity
+ */
+class Orderphotosize
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="number", type="integer", nullable=true)
+     */
+    private $number;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="brilliantMat", type="integer", nullable=true)
+     */
+    private $brilliantmat;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="marge", type="integer", nullable=true)
+     */
+    private $marge;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="messagePhoto", type="string", length=255, nullable=true)
+     */
+    private $messagephoto;
+
+    /**
+     * @var \PhotoexpressoBundle\Entity\Order
+     *
+     * @ORM\ManyToOne(targetEntity="PhotoexpressoBundle\Entity\Order")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Order_id", referencedColumnName="id")
+     * })
+     */
+    private $order;
+
+    /**
+     * @var \PhotoexpressoBundle\Entity\Photo
+     *
+     * @ORM\ManyToOne(targetEntity="PhotoexpressoBundle\Entity\Photo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Photo_id", referencedColumnName="id")
+     * })
+     */
+    private $photo;
+
+    /**
+     * @var \PhotoexpressoBundle\Entity\Printsize
+     *
+     * @ORM\ManyToOne(targetEntity="PhotoexpressoBundle\Entity\Printsize")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="PrintSize_id", referencedColumnName="id")
+     * })
+     */
+    private $printsize;
+
+
+}
+

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pricequantityprintsize</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pricequantityprintsize.id }}</td>
+            </tr>
+            <tr>
+                <th>Fromquantity</th>
+                <td>{{ pricequantityprintsize.fromquantity }}</td>
+            </tr>
+            <tr>
+                <th>Toquantity</th>
+                <td>{{ pricequantityprintsize.toquantity }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ pricequantityprintsize.price }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('price_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('price_edit', { 'id': pricequantityprintsize.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
