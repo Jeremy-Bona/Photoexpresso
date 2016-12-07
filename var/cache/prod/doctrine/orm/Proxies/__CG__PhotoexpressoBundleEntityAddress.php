@@ -419,4 +419,15 @@ class Address extends \PhotoexpressoBundle\Entity\Address implements \Doctrine\O
         return parent::getUser();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function __toString()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
+
+        return parent::__toString();
+    }
+
 }

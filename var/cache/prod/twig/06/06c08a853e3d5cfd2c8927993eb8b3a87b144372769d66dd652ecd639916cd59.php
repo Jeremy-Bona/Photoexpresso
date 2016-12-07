@@ -1,6 +1,6 @@
 <?php
 
-/* ::base.html.twig */
+/* base.html.twig */
 class __TwigTemplate_93048c2bd37d82e86437198b3f2fed44cc805c94b1051b7bdd44b586e115a34d extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -72,7 +72,7 @@ class __TwigTemplate_93048c2bd37d82e86437198b3f2fed44cc805c94b1051b7bdd44b586e11
 
     public function getTemplateName()
     {
-        return "::base.html.twig";
+        return "base.html.twig";
     }
 
     public function isTraitable()
@@ -95,6 +95,6 @@ class __TwigTemplate_93048c2bd37d82e86437198b3f2fed44cc805c94b1051b7bdd44b586e11
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "::base.html.twig", "/Users/jbona/Dev/photoexpresso/app/Resources/views/base.html.twig");
+        return new Twig_Source("", "base.html.twig", "/Users/jbona/Dev/photoexpresso/app/Resources/views/base.html.twig");
     }
 }

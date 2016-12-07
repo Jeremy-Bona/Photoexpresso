@@ -489,7 +489,7 @@
                   <tag name="cache.pool"/>
                   <argument>mYyRRH-07N</argument>
                   <argument>0</argument>
-                  <argument>qHa7esGvzQ-BqauWmH+q3y</argument>
+                  <argument>eFNxaBy0Ggk-Wvm6eoIFXT</argument>
                   <argument>/Users/jbona/Dev/photoexpresso/var/cache/dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -502,7 +502,7 @@
                   <tag name="cache.pool"/>
                   <argument>suwhbNdZP+</argument>
                   <argument>0</argument>
-                  <argument>qHa7esGvzQ-BqauWmH+q3y</argument>
+                  <argument>eFNxaBy0Ggk-Wvm6eoIFXT</argument>
                   <argument>/Users/jbona/Dev/photoexpresso/var/cache/dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -834,7 +834,7 @@
       <tag name="cache.pool"/>
       <argument>KMayS0J4m4</argument>
       <argument>0</argument>
-      <argument>qHa7esGvzQ-BqauWmH+q3y</argument>
+      <argument>eFNxaBy0Ggk-Wvm6eoIFXT</argument>
       <argument>/Users/jbona/Dev/photoexpresso/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1570,7 +1570,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>584728f9c27a67.26184303</argument>
+            <argument>58487a005195a4.49135083</argument>
           </service>
         </argument>
       </argument>
@@ -1704,7 +1704,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>584728f9c27a67.26184303</argument>
+            <argument>58487a005195a4.49135083</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
